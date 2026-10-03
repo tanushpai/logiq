@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ErrorComponentProps,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -37,9 +38,17 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error("Router Catch:", error);
   const router = useRouter();
+
+  const errorMessage =
+    error instanceof Error
+      ? error.message
+      : typeof error === "string"
+        ? error
+        : "An unexpected error occurred.";
+  const errorName = error instanceof Error ? error.name : "Error";
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -50,9 +59,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
-        {error?.message && (
+        {errorMessage && (
           <div className="mt-4 rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-left font-mono text-xs text-destructive">
-            <p className="font-semibold">{error.name}: {error.message}</p>
+            <p className="font-semibold">{errorName}: {errorMessage}</p>
           </div>
         )}
         <div className="mt-6 flex flex-wrap justify-center gap-2">

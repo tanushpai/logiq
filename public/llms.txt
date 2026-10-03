@@ -1,0 +1,18 @@
+# LOG!Q
+
+> The digital identity and AI-native innovation ecosystem of Tanush — AI engineer, builder, and researcher creating intelligent systems for the future.
+
+LOG!Q is a portfolio + research lab: a cinematic personal brand, a project showcase, an experimental laboratory (LOG!Q Labs), an AI companion named QAI, and live AI tools.
+
+## Pages
+- [Home](/): Cinematic introduction, QAI companion, featured work
+- [About](/about): Tanush's story, philosophy, and journey
+- [Portfolio](/portfolio): Selected projects across AI, healthcare, education, sustainability
+- [LOG!Q Labs](/labs): Experimental research — concepts, experiments, AI systems, future interfaces
+- [Playground](/playground): Live AI tools (idea generator, name generator, tagline writer)
+- [Journal](/journal): Field notes and essays on building intelligent systems
+- [Resume](/resume): Skills, experience, and timeline
+- [Contact](/contact): Reach out
+
+## Optional
+- [Sitemap](/sitemap.xml): Full URL index

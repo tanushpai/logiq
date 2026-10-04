@@ -23,6 +23,7 @@ import {
   Cpu,
   Sparkles,
   Eye,
+  FileText,
 } from "lucide-react";
 import {
   getPortfolioData,
@@ -59,7 +60,7 @@ function AdminPage() {
   const [pinError, setPinError] = useState("");
 
   const data = usePortfolioData();
-  const [activeTab, setActiveTab] = useState<"projects" | "notes" | "certs" | "tech">("projects");
+  const [activeTab, setActiveTab] = useState<"projects" | "notes" | "certs" | "tech" | "resume">("projects");
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
 
   // Modal edit states
@@ -355,6 +356,7 @@ function AdminPage() {
         <div className="mt-8 flex flex-wrap gap-2 border-b border-border/40 pb-4">
           {[
             { id: "projects", label: `Projects (${data.projects.length})`, icon: Workflow },
+            { id: "resume", label: "Resume & RAG Knowledge", icon: FileText },
             { id: "notes", label: `Study Notes (${data.notes.length})`, icon: FolderDown },
             { id: "certs", label: `Certifications (${data.certifications.length})`, icon: Award },
             { id: "tech", label: `Tech Stack (${data.techStack.length})`, icon: Layers },
@@ -674,6 +676,292 @@ function AdminPage() {
                     >
                       <Trash2 className="h-3 w-3" />
                     </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 5: RESUME & RAG KNOWLEDGE */}
+        {activeTab === "resume" && (
+          <div className="mt-8 space-y-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-display text-2xl tracking-tight text-foreground">
+                  Resume & QAI Ground Truth
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Edit your experience, education, bio, and technical skills. Updates sync instantly to QAI's RAG retriever.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  savePortfolioData({ ...data });
+                  showNotification("All resume knowledge saved and synced to QAI!");
+                }}
+                className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-xs font-medium text-background hover:opacity-90"
+              >
+                <Save className="h-3.5 w-3.5" />
+                Save Resume Knowledge
+              </button>
+            </div>
+
+            {/* Profile Overview */}
+            <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
+              <h4 className="font-display text-lg text-foreground flex items-center gap-2">
+                <Shield className="h-4 w-4 text-bronze" /> Personal & Contact Info
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Full Name</label>
+                  <input
+                    type="text"
+                    value={data.resume?.name || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, name: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Title / Headline</label>
+                  <input
+                    type="text"
+                    value={data.resume?.title || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, title: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Email</label>
+                  <input
+                    type="text"
+                    value={data.resume?.email || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, email: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Location</label>
+                  <input
+                    type="text"
+                    value={data.resume?.location || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, location: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">LinkedIn URL</label>
+                  <input
+                    type="text"
+                    value={data.resume?.linkedin || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, linkedin: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">GitHub URL</label>
+                  <input
+                    type="text"
+                    value={data.resume?.github || ""}
+                    onChange={(e) => {
+                      const updated = { ...data.resume, github: e.target.value };
+                      savePortfolioData({ ...data, resume: updated });
+                    }}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-bronze"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-xs font-medium text-muted-foreground">Professional Summary / Bio</label>
+                <textarea
+                  rows={3}
+                  value={data.resume?.summary || ""}
+                  onChange={(e) => {
+                    const updated = { ...data.resume, summary: e.target.value };
+                    savePortfolioData({ ...data, resume: updated });
+                  }}
+                  className="mt-1 w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground outline-none focus:border-bronze"
+                />
+              </div>
+            </div>
+
+            {/* Work Experience */}
+            <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="font-display text-lg text-foreground flex items-center gap-2">
+                  <Workflow className="h-4 w-4 text-bronze" /> Professional Experience
+                </h4>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newExp = {
+                      role: "New Role",
+                      company: "Company Name",
+                      location: "Location",
+                      period: "2026 – Present",
+                      points: ["Key engineering achievement..."],
+                    };
+                    const updated = {
+                      ...data.resume,
+                      experience: [newExp, ...(data.resume?.experience || [])],
+                    };
+                    savePortfolioData({ ...data, resume: updated });
+                    showNotification("Added new work experience role");
+                  }}
+                  className="inline-flex items-center gap-1 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs text-foreground hover:border-bronze/50"
+                >
+                  <Plus className="h-3 w-3" /> Add Position
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                {(data.resume?.experience || []).map((exp, idx) => (
+                  <div key={idx} className="rounded-xl border border-border/70 bg-background/60 p-4 space-y-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 flex-1">
+                        <input
+                          type="text"
+                          value={exp.role}
+                          onChange={(e) => {
+                            const copy = [...data.resume.experience];
+                            copy[idx] = { ...copy[idx], role: e.target.value };
+                            savePortfolioData({ ...data, resume: { ...data.resume, experience: copy } });
+                          }}
+                          placeholder="Role"
+                          className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs font-semibold text-foreground"
+                        />
+                        <input
+                          type="text"
+                          value={exp.company}
+                          onChange={(e) => {
+                            const copy = [...data.resume.experience];
+                            copy[idx] = { ...copy[idx], company: e.target.value };
+                            savePortfolioData({ ...data, resume: { ...data.resume, experience: copy } });
+                          }}
+                          placeholder="Company"
+                          className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs text-foreground"
+                        />
+                        <input
+                          type="text"
+                          value={exp.period}
+                          onChange={(e) => {
+                            const copy = [...data.resume.experience];
+                            copy[idx] = { ...copy[idx], period: e.target.value };
+                            savePortfolioData({ ...data, resume: { ...data.resume, experience: copy } });
+                          }}
+                          placeholder="Dates / Period"
+                          className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs text-bronze"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const copy = data.resume.experience.filter((_, i) => i !== idx);
+                          savePortfolioData({ ...data, resume: { ...data.resume, experience: copy } });
+                          showNotification("Removed experience entry");
+                        }}
+                        className="p-1.5 rounded-lg border border-border text-muted-foreground hover:text-rose-500"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+
+                    <div>
+                      <label className="text-[11px] text-muted-foreground font-mono-soft">
+                        Bullet Points (one per line)
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={(exp.points || []).join("\n")}
+                        onChange={(e) => {
+                          const copy = [...data.resume.experience];
+                          copy[idx] = {
+                            ...copy[idx],
+                            points: e.target.value.split("\n").filter((p) => p.trim().length > 0),
+                          };
+                          savePortfolioData({ ...data, resume: { ...data.resume, experience: copy } });
+                        }}
+                        className="mt-1 w-full rounded-lg border border-border bg-card p-2 text-xs text-foreground leading-relaxed outline-none focus:border-bronze"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Education */}
+            <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
+              <h4 className="font-display text-lg text-foreground flex items-center gap-2">
+                <Award className="h-4 w-4 text-bronze" /> Education & Academic Background
+              </h4>
+              {(data.resume?.education || []).map((edu, idx) => (
+                <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-xl border border-border/70 p-4">
+                  <div>
+                    <label className="text-xs text-muted-foreground">Degree / Major</label>
+                    <input
+                      type="text"
+                      value={edu.degree}
+                      onChange={(e) => {
+                        const copy = [...data.resume.education];
+                        copy[idx] = { ...copy[idx], degree: e.target.value };
+                        savePortfolioData({ ...data, resume: { ...data.resume, education: copy } });
+                      }}
+                      className="mt-1 w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs text-foreground"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground">Institution / University</label>
+                    <input
+                      type="text"
+                      value={edu.institution}
+                      onChange={(e) => {
+                        const copy = [...data.resume.education];
+                        copy[idx] = { ...copy[idx], institution: e.target.value };
+                        savePortfolioData({ ...data, resume: { ...data.resume, education: copy } });
+                      }}
+                      className="mt-1 w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs text-foreground"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground">Graduation / Period</label>
+                    <input
+                      type="text"
+                      value={edu.period}
+                      onChange={(e) => {
+                        const copy = [...data.resume.education];
+                        copy[idx] = { ...copy[idx], period: e.target.value };
+                        savePortfolioData({ ...data, resume: { ...data.resume, education: copy } });
+                      }}
+                      className="mt-1 w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs text-foreground"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground">Affiliation / Honors</label>
+                    <input
+                      type="text"
+                      value={edu.details || ""}
+                      onChange={(e) => {
+                        const copy = [...data.resume.education];
+                        copy[idx] = { ...copy[idx], details: e.target.value };
+                        savePortfolioData({ ...data, resume: { ...data.resume, education: copy } });
+                      }}
+                      className="mt-1 w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs text-foreground"
+                    />
                   </div>
                 </div>
               ))}

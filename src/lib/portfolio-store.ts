@@ -53,11 +53,47 @@ export interface TechItem {
   tag: string;
 }
 
+export interface ResumeExperience {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  points: string[];
+}
+
+export interface ResumeEducation {
+  degree: string;
+  institution: string;
+  location: string;
+  period: string;
+  details?: string;
+}
+
+export interface ResumeData {
+  name: string;
+  title: string;
+  email: string;
+  phone: string;
+  location: string;
+  linkedin: string;
+  github: string;
+  summary: string;
+  experience: ResumeExperience[];
+  education: ResumeEducation[];
+  skills: {
+    languages: string[];
+    aiAndGenAI: string[];
+    databases: string[];
+    backendAndTools: string[];
+  };
+}
+
 export interface PortfolioData {
   projects: ProjectItem[];
   notes: NoteItem[];
   certifications: CertificationItem[];
   techStack: TechItem[];
+  resume: ResumeData;
 }
 
 export const INITIAL_PORTFOLIO_DATA: PortfolioData = {
@@ -455,6 +491,85 @@ export const INITIAL_PORTFOLIO_DATA: PortfolioData = {
       tag: "OS & Shell",
     },
   ],
+  resume: {
+    name: "M. R. Tanush Pai",
+    title: "AI/ML Engineer · Generative AI & LLM Systems · Agentic AI · Python Backend",
+    email: "tanushpai06@gmail.com",
+    phone: "+91-9567805222",
+    location: "Kerala, India",
+    linkedin: "https://linkedin.com/in/tanushpai",
+    github: "https://github.com/tanushpai",
+    summary:
+      "AI Engineer with professional experience building Generative AI, LLM, and agentic systems for enterprise applications. Experienced in developing end-to-end AI solutions involving LLM orchestration, RAG, natural-language data querying, document intelligence, and AI-powered analytics, with strong Python, database, and backend engineering skills.",
+    experience: [
+      {
+        role: "Jr. AI Engineer",
+        company: "Sam Corporate",
+        location: "Kochi, India",
+        period: "Aug 2026 – Present",
+        points: [
+          "Integrated Apache Superset into the ESG Reporting application as an embedded BI solution, replacing Power BI for dashboarding and reducing significant licensing costs; implemented dynamic RLS based on user IDs with workspace-level data isolation.",
+          "Designed and implemented a scalable batch document-processing microservice using Gemini on Google Cloud Vertex AI to semantically extract and normalize information from bills, mapping varying field labels to standardized schema fields and returning structured JSON while concurrently processing 100+ PDFs.",
+        ],
+      },
+      {
+        role: "AI/ML Engineer Intern",
+        company: "Sam Corporate",
+        location: "Kochi, India",
+        period: "Feb 2026 – July 2026",
+        points: [
+          "Architected an agentic AI analytics chatbot with an LLM-based planner that dynamically generates MongoDB aggregation pipelines across 25+ collections, enabling non-technical users to query data using natural language with GDPR-aligned privacy controls.",
+          "Built an AI-powered QMS document generation platform adopted by 12+ employees, automating content generation across 10+ templates using LLMs and reducing document turnaround from hours to minutes.",
+          "Extended an ESG analytics platform with 8+ modules, including AI-driven report generation, NL2SQL, peer benchmarking, and interactive data visualization, using PostgreSQL, OpenAI API, and Perplexity API.",
+          "Improved production LLM reliability by optimizing prompt engineering and API workflows, eliminating HTTP 429 rate-limit errors and stabilizing application performance.",
+          "Developed an automated MongoDB data validation tool that cross-checks records across multiple databases and generates Excel reports, replacing manual validation workflows with a single-click process.",
+        ],
+      },
+      {
+        role: "Data Analytics Trainee",
+        company: "Navodita Infotech",
+        location: "Remote",
+        period: "Aug 2025 – Sep 2025",
+        points: [
+          "Built a collaborative filtering recommendation system processing 10K+ user-movie ratings using Python, Pandas, cosine similarity, and NumPy, generating Top-10 personalized recommendations per user.",
+        ],
+      },
+      {
+        role: "Data Science Trainee",
+        company: "Keltron REC",
+        location: "Kochi, India",
+        period: "Jun 2025",
+        points: [
+          "Preprocessed 5+ real-world datasets, built Power BI dashboards, and applied ML fundamentals using Excel and SQL.",
+        ],
+      },
+    ],
+    education: [
+      {
+        degree: "B.Tech in Computer Science (Data Science)",
+        institution: "SCMS School of Engineering and Technology",
+        location: "Kerala, India",
+        period: "Oct 2022 – Apr 2026",
+        details: "Affiliated to APJ Abdul Kalam Technological University",
+      },
+    ],
+    skills: {
+      languages: ["Python", "TypeScript", "SQL", "R"],
+      aiAndGenAI: [
+        "LLMs",
+        "RAG",
+        "Agentic AI",
+        "LangChain",
+        "LangGraph",
+        "Prompt Engineering",
+        "Hugging Face",
+        "Ollama",
+        "OpenAI SDK",
+      ],
+      databases: ["PostgreSQL", "MongoDB", "Redis", "Pandas", "NumPy"],
+      backendAndTools: ["FastAPI", "Prisma", "Vercel", "Git", "GitHub", "Bitbucket", "Jira"],
+    },
+  },
 };
 
 const STORAGE_KEY = "logiq_portfolio_data_v1";
@@ -475,6 +590,7 @@ export function getPortfolioData(): PortfolioData {
       notes: parsed.notes || INITIAL_PORTFOLIO_DATA.notes,
       certifications: parsed.certifications || INITIAL_PORTFOLIO_DATA.certifications,
       techStack: parsed.techStack || INITIAL_PORTFOLIO_DATA.techStack,
+      resume: parsed.resume || INITIAL_PORTFOLIO_DATA.resume,
     };
   } catch (err) {
     console.error("Error loading portfolio data from localStorage", err);

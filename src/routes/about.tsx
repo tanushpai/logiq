@@ -118,11 +118,11 @@ function About() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <Link
-                to="/notes"
+                to="/contact"
                 className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition hover:border-bronze/50"
               >
-                Download Study Notes
-                <FileCheck className="h-4 w-4 text-bronze" />
+                Get In Touch
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </motion.div>
           </div>

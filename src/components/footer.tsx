@@ -20,11 +20,10 @@ export function Footer() {
             <span className="font-mono-soft text-xs uppercase tracking-wider text-foreground">Navigation</span>
             <Link to="/" className="transition hover:text-foreground">Home</Link>
             <Link to="/labs" className="transition hover:text-foreground">Projects</Link>
-            <Link to="/notes" className="transition hover:text-foreground">Study Notes</Link>
+            <Link to="/about" className="transition hover:text-foreground">About & Credentials</Link>
           </div>
           <div className="flex flex-col gap-2.5">
             <span className="font-mono-soft text-xs uppercase tracking-wider text-foreground">Connect</span>
-            <Link to="/about" className="transition hover:text-foreground">About & Credentials</Link>
             <Link to="/resume" className="transition hover:text-foreground">Resume</Link>
             <Link to="/contact" className="transition hover:text-foreground">Contact</Link>
           </div>

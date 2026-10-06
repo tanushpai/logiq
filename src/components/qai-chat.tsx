@@ -49,7 +49,7 @@ const MODELS: ModelOption[] = [
 const SUGGESTED_QUESTIONS = [
   "What is Tanush's background & experience?",
   "Explain the AVANA multi-agent architecture",
-  "Where can I download SQL & Python notes?",
+  "What projects has Tanush built?",
   "What tech stack does Tanush use?",
 ];
 
@@ -76,7 +76,7 @@ export function QaiChat() {
     {
       role: "assistant",
       content:
-        "✦ Hi! I'm **QAI**, Tanush's portfolio AI assistant. I have full knowledge of his **resume, work at Sam Corporate, projects (like AVANA), and downloadable study notes**. What would you like to explore?",
+        "✦ Hi! I'm **QAI**, Tanush's portfolio AI assistant. I have full knowledge of his **resume, work at Sam Corporate, projects (like AVANA & AI Job Agent), and technical expertise**. What would you like to explore?",
     },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);

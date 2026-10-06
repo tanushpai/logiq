@@ -16,7 +16,6 @@ import {
 const items = [
   { to: "/", label: "Home", icon: Home, hint: "Landing & Overview" },
   { to: "/labs", label: "Projects & Architecture", icon: Workflow, hint: "Systems & Demos" },
-  { to: "/notes", label: "Study Notes & PDFs", icon: FolderDown, hint: "Python, SQL, DSA" },
   { to: "/about", label: "About & Certifications", icon: User, hint: "Tech Stack & Badges" },
   { to: "/resume", label: "Resume", icon: FileText, hint: "Experience & CV" },
   { to: "/contact", label: "Contact Tanush", icon: Mail, hint: "Reach Out" },

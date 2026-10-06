@@ -9,10 +9,10 @@ export function Footer() {
         <div className="space-y-4">
           <LogiqLogo />
           <p className="font-display max-w-md text-2xl leading-tight text-foreground/90 md:text-3xl">
-            Built with intelligence.<br />Designed with intent.
+            Built with curiosity.<br />Engineered with intent.
           </p>
           <p className="text-xs text-muted-foreground font-mono-soft">
-            Autonomous Agents · Systems Engineering · Distilled Notes
+            AI/ML Engineer · Generative AI · Data · Software
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm text-muted-foreground">

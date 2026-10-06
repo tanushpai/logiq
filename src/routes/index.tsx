@@ -24,16 +24,16 @@ import { usePortfolioData } from "@/hooks/use-portfolio-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LOG!Q — Intelligent systems, crafted with care" },
+      { title: "Tanush Pai — AI/ML Engineer · LOG!Q" },
       {
         name: "description",
         content:
-          "LOG!Q is the personal innovation studio of Tanush — designing intelligent systems, generative tools, and applied AI for the next decade.",
+          "Tanush Pai is an AI/ML Engineer building practical AI applications, agentic systems, and data-driven products that solve real problems.",
       },
-      { property: "og:title", content: "LOG!Q — Intelligent systems, crafted with care" },
+      { property: "og:title", content: "Tanush Pai — AI/ML Engineer · LOG!Q" },
       {
         property: "og:description",
-        content: "A studio for intelligent systems, generative tools, and applied AI.",
+        content: "AI systems, built to actually work. Practical AI applications, agentic workflows, and software engineering.",
       },
     ],
   }),
@@ -82,10 +82,10 @@ function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bronze opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-bronze" />
               </span>
-              Open for one engagement · Q3 2026
+              Available for Opportunities
             </span>
             <span className="font-mono-soft text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              ✦ Studio for Intelligent Systems
+              ✦ AI / ML Engineer · Builder · Explorer
             </span>
           </motion.div>
           <motion.h1
@@ -94,8 +94,8 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display mt-6 text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[5.5rem]"
           >
-            Intelligence,{" "}
-            <span className="italic text-bronze">crafted</span> with care.
+            AI systems,{" "}
+            <span className="italic text-bronze">built</span> to actually work.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -103,9 +103,9 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            LOG!Q is the personal innovation studio of Tanush — designing
-            intelligent systems, generative tools, and applied AI that feel
-            considered, useful, and quietly powerful.
+            I'm Tanush Pai — an AI/ML Engineer building practical AI
+            applications, agentic systems, and data-driven products that solve
+            real problems.
           </motion.p>
 
           <motion.div
@@ -125,15 +125,15 @@ function Hero() {
               to="/about"
               className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition hover:border-bronze/50"
             >
-              About & Credentials
+              About Me
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </motion.div>
 
           <div className="mt-14 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-6">
             {[
-              { k: `${projectCount}+`, v: "Systems" },
-              { k: "6", v: "Domains" },
+              { k: `${projectCount}+`, v: "AI Systems" },
+              { k: "15+", v: "Technologies" },
               { k: "∞", v: "Curiosity" },
             ].map((s) => (
               <div key={s.v}>
@@ -186,14 +186,13 @@ function Hero() {
 
 function Marquee() {
   const items = [
+    "Generative AI",
     "Agentic Systems",
-    "Generative Interfaces",
-    "ESG Intelligence",
-    "Applied Research",
-    "Sustainability AI",
-    "Cognitive Memory",
-    "Studio Practice",
-    "Quiet Craft",
+    "RAG",
+    "Data Engineering",
+    "Machine Learning",
+    "AI Applications",
+    "Software Engineering",
   ];
   return (
     <section className="relative border-y border-border/60 bg-card/40 py-5">
@@ -214,22 +213,58 @@ function Marquee() {
   );
 }
 
+function Manifesto() {
+  return (
+    <section className="relative px-6 py-32 md:py-44">
+      <div className="mx-auto max-w-5xl text-center">
+        <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
+          ✦ Engineering Philosophy
+        </p>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9 }}
+          className="font-display mx-auto mt-8 text-4xl leading-[1.08] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+        >
+          I build AI that is{" "}
+          <span className="italic text-bronze">useful</span> before it is impressive.
+        </motion.h2>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          I care about systems that solve real problems, behave reliably, and make
+          complex workflows simpler — not AI for the sake of a demo.
+        </p>
+        <div className="mx-auto mt-12 flex max-w-md items-center justify-center gap-3 text-muted-foreground">
+          <span className="h-px w-12 bg-border" />
+          <span className="font-mono-soft text-[11px] uppercase tracking-[0.22em]">
+            Tanush Pai · Practice
+          </span>
+          <span className="h-px w-12 bg-border" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Pillars() {
   const pillars = [
     {
       icon: Compass,
-      k: "Direction",
-      v: "Each system begins as a thesis — a clear point of view on what intelligence should feel like.",
+      num: "01",
+      k: "Understand",
+      v: "Start with the problem, users, data, and constraints before choosing the technology.",
     },
     {
       icon: FlaskConical,
-      k: "Craft",
-      v: "Research, prototyping, and design held to the same standard as the final artifact.",
+      num: "02",
+      k: "Build",
+      v: "Prototype quickly, test assumptions, and turn promising ideas into working systems.",
     },
     {
       icon: Cpu,
-      k: "Systems",
-      v: "Architected platforms with memory, reasoning, and an interface that disappears.",
+      num: "03",
+      k: "Engineer",
+      v: "Add the architecture, AI workflows, APIs, data layer, evaluation, and safeguards needed beyond the demo.",
     },
   ];
   return (
@@ -238,17 +273,20 @@ function Pillars() {
         <div className="mb-14 flex items-end justify-between gap-6">
           <div>
             <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
-              The practice
+              How I Build
             </p>
             <h2 className="font-display mt-4 max-w-2xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
-              Three principles behind every LOG!Q system.
+              Three principles behind the way I build.
             </h2>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-border/70 bg-border/60 md:grid-cols-3">
           {pillars.map((p) => (
             <div key={p.k} className="bg-background p-8 md:p-10">
-              <p.icon className="h-6 w-6 text-bronze" />
+              <div className="flex items-center justify-between">
+                <p.icon className="h-6 w-6 text-bronze" />
+                <span className="font-mono-soft text-[11px] text-bronze">{p.num}</span>
+              </div>
               <h3 className="font-display mt-8 text-2xl tracking-tight">
                 {p.k}
               </h3>
@@ -263,250 +301,27 @@ function Pillars() {
   );
 }
 
-function Showcase() {
-  const items = [
-    {
-      tag: "Flagship",
-      title: "QAI — Companion intelligence",
-      desc: "A conversational companion threaded through the LOG!Q ecosystem. Memory, taste, presence.",
-    },
-    {
-      tag: "Platform",
-      title: "ESG Intelligence",
-      desc: "Sustainability analytics that turn compliance into clarity for teams that care.",
-    },
-    {
-      tag: "Research",
-      title: "AcademicXchange",
-      desc: "An AI-native space for academic collaboration, discovery, and quiet scholarship.",
-    },
-  ];
-  return (
-    <section className="relative border-t border-border/60 px-6 py-28">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex items-end justify-between gap-6">
-          <div>
-            <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
-              Selected work
-            </p>
-            <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight md:text-5xl">
-              A few systems, in motion.
-            </h2>
-          </div>
-          <Link
-            to="/labs"
-            className="group hidden items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground md:inline-flex"
-          >
-            Browse all
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {items.map((it, i) => (
-            <motion.div
-              key={it.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <Link
-                to="/labs"
-                className="group block h-full rounded-3xl border border-border/70 bg-card p-8 transition hover:-translate-y-0.5 hover:border-bronze/50"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono-soft text-[10px] uppercase tracking-[0.22em] text-bronze">
-                    {it.tag}
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-                </div>
-                <h3 className="font-display mt-16 text-2xl leading-tight tracking-tight">
-                  {it.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {it.desc}
-                </p>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  return (
-    <section className="relative px-6 pb-28 pt-8">
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-border/70 bg-foreground p-10 text-background md:p-16">
-        <div className="grid items-end gap-10 md:grid-cols-2">
-          <div>
-            <p className="font-mono-soft text-xs uppercase tracking-[0.22em] opacity-70">
-              <Sparkles className="mr-1 inline h-3 w-3" /> A quiet invitation
-            </p>
-            <h2 className="font-display mt-5 text-4xl leading-[1.05] tracking-tight md:text-5xl">
-              Build something considered, together.
-            </h2>
-          </div>
-          <div className="flex flex-col items-start gap-4 md:items-end">
-            <p className="max-w-md text-sm opacity-80 md:text-right">
-              Collaborations, conversations, and commissions on intelligent
-              systems are open. If your work resonates with this practice — say
-              hello.
-            </p>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition hover:opacity-90"
-            >
-              Start a conversation
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Manifesto() {
-  return (
-    <section className="relative px-6 py-32 md:py-44">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
-          ✦ Manifesto
-        </p>
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9 }}
-          className="font-display mx-auto mt-8 text-4xl leading-[1.08] tracking-tight text-foreground md:text-6xl lg:text-7xl"
-        >
-          We believe intelligence should feel{" "}
-          <span className="italic text-bronze">human</span> — quiet, considered,
-          and in service of the work, never the demo.
-        </motion.h2>
-        <div className="mx-auto mt-12 flex max-w-md items-center justify-center gap-3 text-muted-foreground">
-          <span className="h-px w-12 bg-border" />
-          <span className="font-mono-soft text-[11px] uppercase tracking-[0.22em]">
-            Studio principles · 2026
-          </span>
-          <span className="h-px w-12 bg-border" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Capabilities() {
-  const items = [
-    {
-      icon: Brain,
-      title: "Agentic Reasoning",
-      desc: "Multi-step agents with memory, planning, and tool-use that survive contact with real workflows.",
-      span: "md:col-span-2 md:row-span-2",
-      tone: "from-bronze/20 to-transparent",
-    },
-    {
-      icon: Wand2,
-      title: "Generative Interfaces",
-      desc: "Surfaces that compose themselves around the user.",
-      span: "md:col-span-1",
-    },
-    {
-      icon: Network,
-      title: "Orchestration",
-      desc: "Routing, retries, and observability across complex chains.",
-      span: "md:col-span-1",
-    },
-    {
-      icon: Layers,
-      title: "Applied Research",
-      desc: "Translating papers into production-grade systems.",
-      span: "md:col-span-2",
-    },
-    {
-      icon: Boxes,
-      title: "Design Systems",
-      desc: "Editorial visual languages built to scale.",
-      span: "md:col-span-1",
-    },
-    {
-      icon: Globe2,
-      title: "Sustainability AI",
-      desc: "Models that turn ESG noise into operating signal.",
-      span: "md:col-span-1",
-    },
-  ];
-  return (
-    <section className="relative px-6 py-28">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
-              Capabilities
-            </p>
-            <h2 className="font-display mt-4 max-w-2xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
-              A studio of overlapping disciplines.
-            </h2>
-          </div>
-          <p className="max-w-sm text-sm text-muted-foreground">
-            Research, engineering, and craft — held to the same standard, so the
-            work feels inevitable rather than assembled.
-          </p>
-        </div>
-        <div className="grid auto-rows-[180px] grid-cols-1 gap-3 md:grid-cols-4">
-          {items.map((it, i) => (
-            <motion.div
-              key={it.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-card p-6 transition hover:-translate-y-0.5 hover:border-bronze/50 ${it.span ?? ""}`}
-            >
-              <div
-                aria-hidden
-                className={`pointer-events-none absolute inset-0 -z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${it.tone ? `bg-gradient-to-br ${it.tone}` : ""}`}
-              />
-              <it.icon className="relative h-6 w-6 text-bronze" />
-              <div className="relative">
-                <h3 className="font-display text-2xl leading-tight tracking-tight">
-                  {it.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {it.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Process() {
   const steps = [
     {
       n: "01",
-      k: "Listen",
-      v: "We start with the problem — not the model. A short engagement defines the wedge and the success surface.",
+      k: "Understand",
+      v: "Define the problem, users, data, and constraints.",
     },
     {
       n: "02",
       k: "Prototype",
-      v: "Two-week loops. Real data, real users, real interfaces. Decisions are made with evidence.",
+      v: "Build the smallest useful version and validate the idea quickly.",
     },
     {
       n: "03",
-      k: "Architect",
-      v: "We harden the winning prototype into a system — memory, evaluation, guardrails, telemetry.",
+      k: "Engineer",
+      v: "Turn the prototype into a reliable system with the right architecture, AI workflows, APIs, and data layer.",
     },
     {
       n: "04",
-      k: "Hand off",
-      v: "Documented, observable, and owned by your team. We stay close as long as it's useful.",
+      k: "Ship",
+      v: "Deploy, observe, iterate, and keep improving.",
     },
   ];
   return (
@@ -517,7 +332,7 @@ function Process() {
             Process
           </p>
           <h2 className="font-display mt-4 max-w-2xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
-            How a LOG!Q engagement unfolds.
+            How I turn an idea into a working system.
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-border/70 bg-border/60 md:grid-cols-4">
@@ -538,6 +353,123 @@ function Process() {
               <span className="absolute right-6 top-6 h-1.5 w-1.5 rounded-full bg-bronze/60 transition group-hover:scale-150" />
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Showcase() {
+  const items = [
+    {
+      id: "ai-job-agent",
+      tag: "Agentic AI · Autonomous",
+      title: "AI Job Application & Discovery Agent",
+      desc: "Autonomous end-to-end job intelligence and resume tailoring engine that parses postings, computes vector similarity, and drafts verified application packages.",
+      tech: "Python · FastAPI · LangChain · PostgreSQL · pgvector",
+    },
+    {
+      id: "esg-intelligence",
+      tag: "Data Engineering · Analytics",
+      title: "ESG Intelligence & Compliance Analytics",
+      desc: "Natural-language analytics and document intelligence systems that turn corporate sustainability disclosures into structured metrics and interactive BI dashboards.",
+      tech: "Python · Superset · Apache · PostgreSQL · Docker",
+    },
+    {
+      id: "academic-xchange",
+      tag: "Full-Stack · Knowledge Graphs",
+      title: "AcademicXchange Collaboration Engine",
+      desc: "An AI-native platform for academic collaboration, discovery, and knowledge sharing with citation graph extraction and collaborative workspaces.",
+      tech: "Next.js · TypeScript · Neo4j · KaTeX · Python",
+    },
+  ];
+
+  return (
+    <section className="relative border-t border-border/60 px-6 py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 flex items-end justify-between gap-6">
+          <div>
+            <p className="font-mono-soft text-xs uppercase tracking-[0.22em] text-bronze">
+              Selected Projects
+            </p>
+            <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight md:text-5xl">
+              Things I've built, explored, and shipped.
+            </h2>
+          </div>
+          <Link
+            to="/labs"
+            className="group hidden items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground md:inline-flex"
+          >
+            Browse all projects
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {items.map((it, i) => (
+            <motion.div
+              key={it.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+            >
+              <Link
+                to={`/labs/${it.id}`}
+                className="group flex h-full flex-col justify-between rounded-3xl border border-border/70 bg-card p-8 transition hover:-translate-y-0.5 hover:border-bronze/50"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono-soft text-[10px] uppercase tracking-[0.22em] text-bronze">
+                      {it.tag}
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+                  </div>
+                  <h3 className="font-display mt-8 text-2xl leading-tight tracking-tight">
+                    {it.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {it.desc}
+                  </p>
+                </div>
+                <div className="mt-8 border-t border-border/50 pt-4">
+                  <p className="font-mono-soft text-[11px] text-muted-foreground/80">
+                    <span className="text-bronze font-medium">TECH:</span> {it.tech}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CTA() {
+  return (
+    <section className="relative px-6 pb-28 pt-8">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-border/70 bg-foreground p-10 text-background md:p-16">
+        <div className="grid items-end gap-10 md:grid-cols-2">
+          <div>
+            <p className="font-mono-soft text-xs uppercase tracking-[0.22em] opacity-70">
+              <Sparkles className="mr-1 inline h-3 w-3" /> Let's Build
+            </p>
+            <h2 className="font-display mt-5 text-4xl leading-[1.05] tracking-tight md:text-5xl">
+              Have an interesting problem? Let's build it.
+            </h2>
+          </div>
+          <div className="flex flex-col items-start gap-4 md:items-end">
+            <p className="max-w-md text-sm opacity-80 md:text-right">
+              I'm interested in AI, data, and software problems that are worth solving.
+            </p>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition hover:opacity-90"
+            >
+              Let's Talk
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

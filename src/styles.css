@@ -202,7 +202,21 @@
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--bronze);
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .text-outline.hover-fill {
+    color: var(--bronze);
+  }
 }
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 @keyframes float-y {
   0%, 100% { transform: translateY(0); }

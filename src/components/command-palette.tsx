@@ -85,19 +85,6 @@ export function CommandPalette() {
               </Command.Item>
             ))}
           </Command.Group>
-          <Command.Group heading="Actions" className="px-2 py-1 text-[10px] uppercase tracking-wider text-muted-foreground">
-            <Command.Item
-              value="ask qai chat"
-              onSelect={() => {
-                setOpen(false);
-                window.dispatchEvent(new CustomEvent("qai:open"));
-              }}
-              className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm aria-selected:bg-secondary"
-            >
-              <MessageCircle className="h-4 w-4 text-bronze" />
-              <span>Ask QAI Companion</span>
-            </Command.Item>
-          </Command.Group>
         </Command.List>
       </Command>
     </div>

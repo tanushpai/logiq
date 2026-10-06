@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { QaiChat } from "@/components/qai-chat";
 import { CommandPalette } from "@/components/command-palette";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
@@ -140,7 +139,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <div className="relative min-h-screen overflow-x-hidden">
+        <div className="relative min-h-screen overflow-x-clip">
           <Navbar />
           <main className="relative">
             <Outlet />
@@ -148,7 +147,6 @@ function RootComponent() {
           <Footer />
           <CommandPalette />
           <FloatingWhatsapp />
-          <QaiChat />
         </div>
       </ThemeProvider>
     </QueryClientProvider>

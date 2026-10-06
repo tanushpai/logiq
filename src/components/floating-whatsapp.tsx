@@ -26,7 +26,7 @@ export function FloatingWhatsapp({
       transition={{ delay: 0.6, duration: 0.4 }}
       whileHover={{ scale: 1.08, y: -2 }}
       whileTap={{ scale: 0.94 }}
-      className="fixed bottom-6 right-24 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-cinema transition hover:shadow-[0_0_25px_rgba(37,211,102,0.45)] group"
+      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-cinema transition hover:shadow-[0_0_25px_rgba(37,211,102,0.45)] group"
     >
       {/* Animated Ping Ring */}
       <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">

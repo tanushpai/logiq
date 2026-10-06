@@ -15,6 +15,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { QaiChat } from "@/components/qai-chat";
 import { CommandPalette } from "@/components/command-palette";
+import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 
 function NotFoundComponent() {
   return (
@@ -146,6 +147,7 @@ function RootComponent() {
           </main>
           <Footer />
           <CommandPalette />
+          <FloatingWhatsapp />
           <QaiChat />
         </div>
       </ThemeProvider>

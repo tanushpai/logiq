@@ -19,6 +19,7 @@ import {
   PlayCircle,
 } from "lucide-react";
 import robotClean from "@/assets/qai-robot-clean.png";
+import { usePortfolioData } from "@/hooks/use-portfolio-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,6 +55,9 @@ function Index() {
 }
 
 function Hero() {
+  const { projects } = usePortfolioData();
+  const projectCount = projects?.length ?? 12;
+
   return (
     <section className="relative overflow-hidden px-6 pt-32 pb-24 md:pt-40 md:pb-32">
       {/* soft beige aura */}
@@ -135,7 +139,7 @@ function Hero() {
 
           <div className="mt-14 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-6">
             {[
-              { k: "12+", v: "Systems" },
+              { k: `${projectCount}+`, v: "Systems" },
               { k: "6", v: "Domains" },
               { k: "∞", v: "Curiosity" },
             ].map((s) => (
@@ -622,9 +626,12 @@ function Testimonials() {
 }
 
 function Stats() {
+  const { projects } = usePortfolioData();
+  const projectCount = projects?.length ?? 12;
+
   const rows = [
-    { k: "$48M", v: "Pipeline value influenced", note: "Across 9 engagements" },
-    { k: "12", v: "Systems in production", note: "From agentic to ESG" },
+    { k: "$48M", v: "Pipeline value influenced", note: "Across enterprise solutions" },
+    { k: `${projectCount}`, v: "Systems in production", note: "From agentic to ESG" },
     { k: "4.9 / 5", v: "Client satisfaction", note: "Average across reviews" },
     { k: "6", v: "Domains served", note: "Health, climate, fintech, edu, media, gov" },
   ];

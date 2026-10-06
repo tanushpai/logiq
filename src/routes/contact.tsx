@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Github, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — LOG!Q" },
-      { name: "description", content: "Let's build something intelligent together." },
-      { property: "og:title", content: "Contact — LOG!Q" },
+      { name: "description", content: "Let's build something intelligent together. Connect with Tanush via Email, LinkedIn, GitHub, or WhatsApp." },
+      { property: "og:title", content: "Contact — Tanush · LOG!Q" },
       { property: "og:description", content: "Reach out to Tanush." },
     ],
   }),
@@ -25,26 +25,56 @@ function Contact() {
             Let's build something <span className="italic text-bronze">intelligent</span> together.
           </h1>
           <p className="mt-6 max-w-md text-muted-foreground">
-            Whether it's a collaboration, a research thread, or a wild idea — I'd love to hear from you.
+            Whether it's a collaboration, AI systems engineering, an enterprise opportunity, or a research thread — I'd love to hear from you.
           </p>
 
           <div className="mt-10 space-y-4 text-sm">
             <div className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-bronze" />
-              <a href="mailto:hello@logiq.ai" className="transition hover:text-bronze">hello@logiq.ai</a>
+              <a href="mailto:tanushpai06@gmail.com" className="transition hover:text-bronze">
+                tanushpai06@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Phone className="h-4 w-4 text-bronze" />
+              <a href="tel:+919567805222" className="transition hover:text-bronze">
+                +91 9567805222
+              </a>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-4 w-4 text-bronze" />
-              <span>Earth · Building Everywhere</span>
+              <span>Ernakulam, Kerala, India</span>
             </div>
           </div>
 
-          <div className="mt-8 flex gap-3">
-            {[Github, Linkedin, Twitter].map((I, i) => (
-              <a key={i} href="#" className="glass rounded-full border border-border p-3 transition hover:border-bronze hover:text-bronze">
-                <I className="h-4 w-4" />
-              </a>
-            ))}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="https://github.com/tanushpai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full border border-border px-4 py-2.5 text-xs font-medium transition hover:border-bronze hover:text-bronze"
+            >
+              <Github className="h-4 w-4" />
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/tanushpai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full border border-border px-4 py-2.5 text-xs font-medium transition hover:border-bronze hover:text-bronze"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </a>
+            <a
+              href="https://wa.me/919567805222?text=Hi%20Tanush,%20I%20came%20across%20your%20LOG!Q%20portfolio%20and%20would%20like%20to%20connect!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full border border-border px-4 py-2.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 transition hover:border-emerald-500/50 hover:bg-emerald-500/10"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
           </div>
         </div>
 
